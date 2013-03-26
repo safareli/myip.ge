@@ -1,0 +1,244 @@
+@import url("http://fonts.googleapis.com/css?family=Share+Tech+Mono")
+// @import "normalize"
+@import "compass"
+
+=user-select($type:none)
+    +experimental(user-select, unquote($type),-moz, -webkit, not -o,-ms, -khtml, official)
+
+=pointer-events($type: none)
+    +experimental(pointer-events, unquote($type),-moz, -webkit, not -o, not -ms, -khtml, official)
+
+$major-font : 'Share Tech Mono' 'sans-serif'
+$major-color : hsl(81, 76%, 62%)
+$minor-color : #151515
+$middle-color : adjust-hue($major-color, -80)
+$footer-height : 21px
+.wrapper
+    min-height: 100%
+    height: auto !important
+    height: 100%
+    margin: 0 0 0 -$footer-height
+*
+    +user-select(none)
+
+::selection
+    background: $major-color
+    color: $minor-color
+    text-shdow: none
+::moz-selection
+    background: $major-color
+    color: $minor-color
+    text-shdow: none
+.text
+    color: $major-color
+    +text-shadow( 0 1px 1px  fade-out(black,0.9),0 0 5px  fade-out($major-color,0.9),0 0 10px  fade-out($major-color,0.9)) 
+html,body
+    margin: 0
+    padding: 0
+    height: 100%
+html
+    font-size: 10px
+body
+    font-family: $major-font
+    background-color: $minor-color
+    font-size: 1em
+    color: #444
+header
+    padding: .5em .2em .5em
+    background-color: fade-out(darken($minor-color,5),0.5)
+    border-bottom: 1px dashed $middle-color
+    text-align: center
+    h1
+        @extend .text
+        margin: 0em
+        font-size: 2.5em
+    
+.container
+    position: relative
+    overflow: hidden
+    text-align: center
+#t-ip
+    @extend .text
+    font-size: 2em
+    margin: 1em auto 21px 
+    padding: .5em .2em .5em 
+    +user-select(text)
+#copy
+    background-color: fade-out(darken($minor-color,5),0.5)
+    border: 2px dashed $middle-color
+    color: $middle-color
+    position: absolute
+    top: -1.5em
+    +border-radius(50%)
+    +transition(top .25s)
+    left: 50%
+    margin-left: -2.5em
+    padding: 1.5em .5em .25em 
+    line-height: 1.5em
+    width: 4em
+    @extend .text
+
+p
+    font-size: 1.3em
+    line-height: 1.8
+footer,.push
+    height: $footer-height
+footer
+    position: relative
+    // bottom: 0px
+    // right: 0px
+    // left: 0px
+    background-color: darken($minor-color,5)
+    font-size: 10px
+    font-family: Georgia, serif
+    h6
+        border-top: 1px dashed $middle-color
+        margin: 0 
+        padding: 0 1em 0 1em
+        font-size: 10px
+        line-height: 2em
+        height: 2em 
+        text-align: right
+        color: hsl(0, 0%, 50%)//TODO 
+        &:after
+            content: "..." 
+    a
+        color: $middle-color
+        margin: 0 .5em
+        text-decoration: none
+
+.onlydesktop
+    display: none
+.nomobile
+    display: none
+.imgwrapper
+    display: none
+
+
+
+.bubble
+    +pointer-events(none)
+    display: none
+    .bubble-text
+        display: table-cell
+        vertical-align: middle
+        text-align: center
+/* ==============================================
+     Media: Queries
+     ============================================== */
+@media only screen and (min-width: 320px) 
+    body
+        font-size: 1.75em
+@media only screen and (min-width: 480px)
+    body
+        font-size: 2.5em
+    footer h6 .nomobile
+        display: initial
+    .imgwrapper
+        display: block
+        text-align: center
+@media only screen and (min-width: 650px)
+
+    .bubble
+        display: table
+    .onlydesktop
+        display: initial
+    body
+        &:hover #copy
+            top: -1.5em
+    footer h6
+        &:after
+            content: ""
+    .container #copy
+        top: -4em
+
+    #safareli
+        position: relative
+        +transition(all .5s linear )
+        &:hover .bubble
+            +transform(scale(1))
+            opacity: 0.9
+            bottom: 4em
+            left: 4em
+        .bubble
+            width: 10em
+            height: 10em
+            line-height: 2em
+            padding: 1em
+            font-family: 'Alegreya SC', Georgia, serif
+            font-weight: 400
+            font-style: italic
+            text-align: center
+            border: 5px dashed $middle-color
+            /*color $major-color*/
+            background: fade-out($minor-color,0.25)
+            text-indent: 0px
+            position: absolute
+            bottom: -4em
+            left: -4em
+            opacity: 0
+            +border-radius(50% )
+            +text-shadow(1px 1px 1px rgba(0, 0, 0, 0.1) )
+            +box-shadow(0px 3px 8px rgba(0,0,0,0.1) )
+            +transform(scale(0.2) )
+            +transition(all .3s ease-in-out  )
+            &:before,&:after
+                z-index: -1
+                content: ""
+                position: absolute
+                bottom: -1em
+                left: -1em
+                border: 2px dashed $middle-color
+                width: 5em
+                height: 5em
+                border-radius: 50%
+            &:after
+                bottom: -2em
+                left: -2em
+                width: 3em
+                height: 3em
+            .bubble-text
+                font-size: 1.4em
+    
+    #source
+        color: $major-color
+        position: relative
+        &:hover
+            .bubble
+                +transform(scale(1))
+                opacity: 0.9
+                bottom: 4em
+                right: 0em
+        .bubble
+            // display: none
+            position: absolute
+            width: 10em
+            height: 6em
+            border: 1px dashed
+            padding: .25em 1em
+            text-align: center
+            +transition(all .5s)
+            +border-radius(50%)
+            +transform(scale(0))
+            opacity: 0.1
+            bottom: 0
+            right: -10em
+            &:before,&:after
+                content: ""
+                position: absolute
+                width: 1.4em
+                height: 1.4em
+                bottom: -.6em
+                border-right: 1px dashed
+                border-bottom: 1px dashed
+                left: 50%
+                margin-left: 2em
+                +transform(rotate(30deg))
+            .bubble-text
+                font-size: 1.1em
+
+    // #t-ip
+    //     position: relative 
+    //     margin: 1.5em auto 21px
+    //     display: inline-block
+    //     padding: .1em .2em .1em

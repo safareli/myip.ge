@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]>
+<!-->
+<html class="no-js">
+  <!--
+<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+    <title>
+      {{ip}} - MY IP
+    </title>
+    <script>
+      document.documentElement.className = document.documentElement.className.replace("no-js","js");
+    </script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/screen.css">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="chromeframe">
+        You are using an <strong>outdated</strong>browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>
+        or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a>to improve your experience.
+      </p>
+    <![endif]-->
+  <div class="wrapper">
+    <header>
+      <h1>
+        MY IP
+      </h1>
+    </header>
+    <div class="container">
+      <a id="copy" data-clipboard-text="{{ip}}" class="button">
+        copy
+      </a>
+      <div id="t-ip">
+        {{ip}}
+      </div>
+      <div class="imgwrapper">
+        <img src="{{qrurl}}" alt="{{ip}}">
+      </div>
+    </div>
+    <div class="push"></div>
+  </div>
+  <footer>
+    <h6>
+      Coded by 
+      <a href="http://safareli.github.com" id="safareli">
+        I.safareli
+        <span class="bubble">
+          <span class="bubble-text">
+            Web &amp; Android Developer 
+          </span>
+        </span>
+      </a>
+      <span class="onlydesktop">
+        using PHP and SASS 
+        <a id="source" href="https://github.com/safareli/myip.ge">
+          SOURCE  
+          <span class="bubble">
+            <span class="bubble-text">
+              source on GitHub
+            </span>
+          </span>
+        </a>
+      </span>
+    </h6>
+  </footer>
+  <script src="js/vendor/ZeroClipboard.min.js">
+  </script>
+  <script src="js/main.js">
+  </script>
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){
+      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}
+     (document,'script'));
+  </script>
+  </body>
+</html>
