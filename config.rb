@@ -2,10 +2,10 @@
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "public_html/css"
+css_dir = "myip/css"
 sass_dir = "sass"
-images_dir = "public_html/img"
-javascripts_dir = "public_html/js"
+images_dir = "myip/img"
+javascripts_dir = "myip/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
